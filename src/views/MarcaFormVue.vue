@@ -2,12 +2,17 @@
   <div>
     <h1>Form marcas !</h1>
     <p>{{ $route.params.id }}</p>
-    <p><button @click="voltar()">Voltar</button></p>
+    <p><Button label="Submit" icon="pi pi-check" iconPos="right" @click="voltar()">Voltar</button></p>
   </div>
 </template>
 
 <script>
+import Button from 'primevue/button'
 export default {
+    components: {
+        Button
+
+    }, 
     mounted () {
         console.log(this.$route.params.id)
     },
