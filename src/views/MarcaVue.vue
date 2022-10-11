@@ -1,34 +1,28 @@
 <template>
-  <div>
+    <div>
         <h1>MARCAS !</h1>
             
             <div class="card">    
                 <DataTable :value="marcas" responsiveLayout="scroll">
                     <Column field="id" header="ID" :sortable="true"></Column>
-                    <Column field="nome" header="NOME" :sortable="true"></Column> 
-                    <Button label="Submit" icon="pi pi-check" iconPos="right" @click="editar(m)">Editar</Button>       
-                </DataTable>
-                
-
-               
+                    <Column field="nome" header="NOME" :sortable="true"></Column>   
+                    <Column headerStyle="width: 4rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
+                            <template #body="{data}">
+                                <Button label="Submit" icon="pi pi-check" iconPos="right" @click="editar(data)">Editar</Button>
+                            </template>
+                    </Column>                                                   
+                </DataTable>                            
             </div>
-            
-
-
-                
-
 
                     <!-- <td>{{m.id}}</td>
-                    <td>{{m.nome}}</td> -->
-                    
-                    
+                    <td>{{m.nome}}</td> -->                    
                     <!-- <button style="{backgroundColor: var(--blue-500)}">Editar</button> -->
                     <!-- <Button label="Submit" icon="pi pi-check" iconPos="right" >Testes</button> -->
                     <!-- <Button label="Submit" class="p-button-text" >Testes</button> -->
                     <!-- <td><a href="javascript:void(0)" @click="editar(m)">Editar</a></td> -->
                     <!-- <td> <button @click="editar(m)">Editar</button></td>  -->
             
-  </div>
+    </div>
 </template>
 
 <script>
@@ -42,7 +36,6 @@ export default {
         Button,
         DataTable,
         Column
-
     },    
     data () {
         return {

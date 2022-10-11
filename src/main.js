@@ -9,6 +9,7 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';     //optional for column grouping
 import Row from 'primevue/row'; 
+import AutoComplete from 'primevue/autocomplete';
 
 
 const app = createApp(App)
@@ -22,6 +23,7 @@ app.use(Column)
 app.use(DataTable)
 app.use(ColumnGroup)
 app.use(Row)
+app.use(AutoComplete)
 
 
 app.mount('#app')

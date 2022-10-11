@@ -1,26 +1,36 @@
 <template>
   <div>
     <h1>CARROS !</h1>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th></th>
-            </tr>
-            <tr v-for="m in modelos" :key="m.id">
-                <td>{{m.id}}</td>
-                <td>{{m.nome}}</td>
-                <td><a href="javascript:void(0)" @click="editar(m)">Editar</a></td>
-                <!-- <td> <button @click="editar(m)">Editar</button></td>  -->
-            </tr>
+        <div class="card">
+            <DataTable :value="modelos" responsiveLayout="scroll">
+                <Column field="id" header="ID" :sortable="true"></Column>
+                <Column field="nome" header="NOME" :sortable="true"></Column>
+                <Column headerStyle="width: 4rem; text-align: center" bodyStyle="text-align: center; overflow: visible">
+                <template #body="{data}">
+                    <Button label="Submit" icon="pi pi-check" iconPos="right" @click="editar(data)">Editar</Button>
+                </template>
+                </Column> 
+            </DataTable>
 
-        </table>
+        </div>
+
+     
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import Button from 'primevue/button';
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+
 export default {
+    components: {
+        Button,
+        DataTable,
+        Column
+
+    }, 
     data () {
         return {
             modelos : []
